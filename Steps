@@ -1,0 +1,27 @@
+Open the program Git Bash (just search for it in the Windows search bar, it came with the Git installation). Type the line one below, replacing the email with your email address. Line two is the success message.
+
+ssh-keygen -t rsa -b 4096 -C "email_address@something.com"
+
+Generating public/private rsa key pair.
+
+When the console asks you to “Enter a file in which to save the key,” hit Enter for the default folder.
+
+When asked to “Enter a passphrase”, type in a new password, hit enter, then repeat it. Make sure to not lose it.
+
+$ Enter passphrase (empty for no passphrase): .....
+
+$ Enter same passphrase again: ....
+
+Enter these two lines to tell Git about the key, enter your passphrase from above. (the last line is the success message):
+
+$ eval $(ssh-agent -s)
+
+$ ssh-add ~/.ssh/id_rsa
+
+Enter passphrase for .../.ssh/id_rsa:
+
+Identity added: /c/Users/Yourname/.ssh/id_rsa (/c/Users/Yourname/.ssh/id_rsa)
+
+In your folder “C:\Users\Yourname\.ssh” there is a file id_rsa_pub, open it with a text editor.
+
+Go to GitHub (I assume you have a GitHub account), log in. In your GitHub account, go to Settings > SSH and GPG Keys > New SSH Key and paste the content of the id_rsa_pub file into there. Name and save. (More Info on this step on the GitHub help page, which this info is from.)
